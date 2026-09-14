@@ -1,0 +1,39 @@
+{
+  "numerical_features_raw": [
+    "tenure",
+    "MonthlyCharges",
+    "TotalCharges"
+  ],
+  "categorical_features_raw": [
+    "gender",
+    "SeniorCitizen",
+    "Partner",
+    "Dependents",
+    "PhoneService",
+    "MultipleLines",
+    "InternetService",
+    "OnlineSecurity",
+    "OnlineBackup",
+    "DeviceProtection",
+    "TechSupport",
+    "StreamingTV",
+    "StreamingMovies",
+    "Contract",
+    "PaperlessBilling",
+    "PaymentMethod"
+  ],
+  "engineered": [
+    "tenure_group",
+    "num_services",
+    "avg_monthly_spend",
+    "charge_increase"
+  ],
+  "final_model": "DT_deeper_balanced",
+  "model_metrics": {
+    "accuracy": 0.7392333175579744,
+    "precision": 0.5058823529411764,
+    "recall": 0.7664884135472371,
+    "f1": 0.6094968107725017,
+    "roc_auc": 0.8144680201040118
+  }
+}

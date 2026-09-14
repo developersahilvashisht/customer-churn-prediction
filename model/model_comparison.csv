@@ -1,0 +1,4 @@
+,accuracy,precision,recall,f1,roc_auc
+DT_default_depth5,0.7927,0.6116,0.6007,0.6061,0.8243
+DT_deeper_balanced,0.7392,0.5059,0.7665,0.6095,0.8145
+DT_shallow_gini_minsplit,0.7918,0.658,0.4492,0.5339,0.8258

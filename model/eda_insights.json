@@ -1,0 +1,9 @@
+{
+  "churn_rate": "26.5%",
+  "month_to_month_churn": "42.7%",
+  "two_year_churn": "2.8%",
+  "fiber_churn": "41.9%",
+  "electronic_check_churn": "45.3%",
+  "median_tenure_churned": 10.0,
+  "median_tenure_retained": 38.0
+}
