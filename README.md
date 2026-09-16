@@ -5,6 +5,8 @@ Customer Churn dataset (7,043 customers, 21 features). Built as a complete
 workflow: data prep → EDA → feature engineering → Decision Tree modeling →
 evaluation → interpretation → saved pipeline → REST API.
 
+Github repo : https://github.com/developersahilvashisht/customer-churn-prediction/
+
 ## Project Structure
 
 ```
