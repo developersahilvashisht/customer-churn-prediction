@@ -1,9 +1,7 @@
-# Customer Churn Prediction — End-to-End ML Project
+# Customer Churn Prediction Project
 
 Predicts whether a telecom customer is likely to churn, using the IBM Telco
-Customer Churn dataset (7,043 customers, 21 features). Built as a complete
-workflow: data prep → EDA → feature engineering → Decision Tree modeling →
-evaluation → interpretation → saved pipeline → REST API.
+Customer Churn dataset (7,043 customers, 21 features).
 
 Github repo : https://github.com/developersahilvashisht/customer-churn-prediction/
 
@@ -14,13 +12,13 @@ customer_churn_project/
 ├── data/
 │   └── TelcoCustomerChurn.csv        # raw dataset
 ├── notebook/
-│   ├── churn_analysis.ipynb          # full analysis notebook (run top to bottom)
-│   └── figures/                      # all EDA / evaluation charts (12 figures)
+│   ├── churn_analysis.ipynb          # full analysis notebook
+│   └── figures/                      # all EDA / evaluation charts
 ├── model/
 │   ├── churn_model.pkl               # final trained pipeline (preprocessing + model)
 │   ├── metadata.json                 # feature list, chosen model, metrics
 │   ├── model_comparison.csv          # metrics for all 3 tree configurations tried
-│   └── eda_insights.json             # key EDA figures used in the report
+│   └── eda_insights.json             # EDA figures used in the report
 ├── feature_engineering.py            # shared feature logic (used by BOTH training & API)
 ├── build_pipeline.py                 # trains the model end-to-end, saves artifacts
 ├── app.py                            # FastAPI REST API
@@ -70,15 +68,9 @@ jupyter notebook notebook/churn_analysis.ipynb
 uvicorn app:app --reload --port 8000
 ```
 
-> **Windows note:** if `uvicorn` isn't recognized as a command, use
-> `python -m uvicorn app:app --reload --port 8000` instead — this runs the
-> module directly and sidesteps PATH issues, which is common right after a
-> fresh `pip install` on Windows.
-
 Interactive Swagger docs: http://127.0.0.1:8000/docs. Use this page (not a
 plain browser GET to `/predict`) to test the API interactively — `/predict`
-only accepts POST requests, so typing its URL directly into a browser
-address bar will show "Method Not Allowed," which is expected.
+only accepts POST requests
 
 ### Sample request
 
@@ -138,8 +130,7 @@ with a field-level error message instead of a prediction.
 
 **Final model:** Decision Tree, `max_depth=8`, `min_samples_leaf=20`,
 `class_weight='balanced'` — chosen for the highest F1 score and, more
-importantly, for prioritizing **recall** (see notebook Section 5 for the
-business justification: missing a churner is costlier than a false alarm).
+importantly, for prioritizing **recall**.
 
 **Top churn drivers:** Month-to-month contract type, low tenure, Fiber optic
 internet service, high monthly charges, and lack of tech support / online
@@ -153,6 +144,3 @@ security add-ons.
 - **Train/test split happens before any preprocessing is fit**, and the
   `ColumnTransformer` is fit only on the training set, then applied to both
   test data and new API requests — this avoids data leakage.
-- **`feature_engineering.py`** is imported by both `build_pipeline.py` (training)
-  and `app.py` (serving) so new customer data is transformed identically to
-  training data — a common production pitfall ("train/serve skew") avoided here.
