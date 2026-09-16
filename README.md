@@ -68,7 +68,15 @@ jupyter notebook notebook/churn_analysis.ipynb
 uvicorn app:app --reload --port 8000
 ```
 
-Interactive Swagger docs: http://127.0.0.1:8000/docs
+> **Windows note:** if `uvicorn` isn't recognized as a command, use
+> `python -m uvicorn app:app --reload --port 8000` instead — this runs the
+> module directly and sidesteps PATH issues, which is common right after a
+> fresh `pip install` on Windows.
+
+Interactive Swagger docs: http://127.0.0.1:8000/docs. Use this page (not a
+plain browser GET to `/predict`) to test the API interactively — `/predict`
+only accepts POST requests, so typing its URL directly into a browser
+address bar will show "Method Not Allowed," which is expected.
 
 ### Sample request
 
