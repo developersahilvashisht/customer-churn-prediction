@@ -2,7 +2,7 @@
 Customer Churn Prediction - End-to-End Build Script
 =====================================================
 This script performs the full workflow and is also the source of truth
-for the Jupyter notebook (cells are assembled from this logic).
+for the Jupyter notebook.
 Run: python3 build_pipeline.py
 """
 import pandas as pd
@@ -52,7 +52,7 @@ df['TotalCharges'] = df['TotalCharges'].fillna(0)
 print("Duplicate rows:", df.duplicated().sum())
 print("Duplicate customerIDs:", df['customerID'].duplicated().sum())
 
-# Drop identifier column - not predictive, would leak nothing but is useless noise
+# Drop identifier column - not predictive
 df = df.drop(columns=['customerID'])
 
 # SeniorCitizen is 0/1 but conceptually categorical -> map to Yes/No for consistency
@@ -154,7 +154,7 @@ plt.close()
 
 print(f"Saved 7 EDA figures to {FIG_DIR}/")
 
-# Business insight summary (also embedded in notebook markdown)
+# Business insight summary
 insights = {
     "churn_rate": f"{df['Churn'].mean()*100:.1f}%",
     "month_to_month_churn": f"{df[df.Contract=='Month-to-month'].Churn.mean()*100:.1f}%",
@@ -244,7 +244,7 @@ print(f"\nSelected final model: {final_model_name} (highest F1 score)")
 final_pipeline = fitted_pipelines[final_model_name]
 
 # ============================================================
-# 5. MODEL EVALUATION (on final model)
+# 5. MODEL EVALUATION
 # ============================================================
 print("\n" + "="*60, "\n5. MODEL EVALUATION\n", "="*60)
 
@@ -327,7 +327,7 @@ os.makedirs("model", exist_ok=True)
 joblib.dump(final_pipeline, "model/churn_model.pkl")
 print("Saved final pipeline to model/churn_model.pkl")
 
-# Save metadata needed by the API for input validation / consistent preprocessing
+# Save metadata needed by the API for input validation
 metadata = {
     "numerical_features_raw": ['tenure', 'MonthlyCharges', 'TotalCharges'],
     "categorical_features_raw": [c for c in categorical_features if c != 'tenure_group'],
