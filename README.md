@@ -5,6 +5,8 @@ Customer Churn dataset (7,043 customers, 21 features).
 
 Github repo : https://github.com/developersahilvashisht/customer-churn-prediction/
 
+Video Demo : https://nagarro-my.sharepoint.com/:v:/p/sahil01/IQCasxGwkU19TKigplmd7DMaAb2hGGPLMXAB4ryldh8caJo?e=H7Aa3H
+
 ## Project Structure
 
 ```
