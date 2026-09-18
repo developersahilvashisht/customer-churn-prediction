@@ -10,11 +10,6 @@ import pandas as pd
 
 
 def engineer_features(data: pd.DataFrame) -> pd.DataFrame:
-    """Add engineered features to a raw customer dataframe.
-
-    Expects raw Telco-schema columns: tenure, TotalCharges, MonthlyCharges,
-    and the eight service columns listed below.
-    """
     data = data.copy()
 
     # Feature 1: tenure_group - lifecycle-stage bucket
