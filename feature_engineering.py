@@ -1,10 +1,9 @@
 """
 Shared feature engineering logic.
 
-IMPORTANT: This exact function is used both when training the model
+This function is used both when training the model
 (build_pipeline.py) and when serving predictions (app.py), so that new/unseen
-data is transformed in EXACTLY the same way as training data. This is what
-"avoiding train/serve skew" means in production ML systems.
+data is transformed in EXACTLY the same way as training data.
 """
 import numpy as np
 import pandas as pd
