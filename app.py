@@ -46,7 +46,6 @@ def load_artifacts():
         metadata = json.load(f)
 
 
-# ---- Request schema: mirrors raw Telco columns the model expects ----
 class CustomerData(BaseModel):
     gender: str = Field(..., examples=["Female"])
     SeniorCitizen: str = Field(..., description="'Yes' or 'No'", examples=["No"])
