@@ -51,14 +51,14 @@ This will:
 - Load and clean `data/TelcoCustomerChurn.csv`
 - Generate 12 charts into `notebook/figures/`
 - Engineer 4 new features
-- Split data 70:30 (`random_state=42`)
+- Split data 70:30
 - Train and compare 3 Decision Tree configurations
 - Select the best model by F1 score
 - Save the final pipeline to `model/churn_model.pkl`
 
-The Jupyter notebook `notebook/churn_analysis.ipynb` contains the same
+churn_analysis.ipynb` contains the same
 workflow with full explanations, business insights per chart, and
-all outputs already rendered.
+all outputs.
 
 ```bash
 jupyter notebook notebook/churn_analysis.ipynb
@@ -70,7 +70,7 @@ jupyter notebook notebook/churn_analysis.ipynb
 uvicorn app:app --reload --port 8000
 ```
 
-Swagger docs: http://127.0.0.1:8000/docs. Use this page to test the API interactively — `/predict`
+Swagger docs: http://127.0.0.1:8000/docs. Use this page to test the API — `/predict`
 only accepts POST requests
 
 ### Sample request
