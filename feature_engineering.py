@@ -17,7 +17,7 @@ def engineer_features(data: pd.DataFrame) -> pd.DataFrame:
     labels = ['0-12mo', '13-24mo', '25-48mo', '49-60mo', '61-72mo']
     data['tenure_group'] = pd.cut(data['tenure'], bins=bins, labels=labels)
 
-    # Feature 2: num_services - count of subscribed services (stickiness proxy)
+    # Feature 2: num_services - count of subscribed services
     service_cols = ['PhoneService', 'MultipleLines', 'OnlineSecurity', 'OnlineBackup',
                      'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies']
     data['num_services'] = (data[service_cols] == 'Yes').sum(axis=1)
