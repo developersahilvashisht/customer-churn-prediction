@@ -31,7 +31,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# ---- Load model & metadata once, at startup (not per-request) ----
+# ---- Load model & metadata once, at startup
 model_pipeline = None
 metadata = None
 
