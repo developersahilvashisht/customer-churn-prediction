@@ -1,5 +1,5 @@
 """
-Customer Churn Prediction - End-to-End Build Script
+Customer Churn Prediction - Build Script
 =====================================================
 This script performs the full workflow and is also the source of truth
 for the Jupyter notebook.
@@ -69,7 +69,7 @@ print("\nNumerical features:", numerical_features)
 print("Categorical features:", categorical_features)
 
 # ============================================================
-# 2. EXPLORATORY DATA ANALYSIS
+# 2. DATA ANALYSIS
 # ============================================================
 print("\n" + "="*60, "\n2. EXPLORATORY DATA ANALYSIS\n", "="*60)
 
@@ -194,7 +194,7 @@ print(f"\nTrain shape: {X_train.shape}, Test shape: {X_test.shape}")
 print("Train churn rate:", y_train.mean().round(3), "| Test churn rate:", y_test.mean().round(3))
 
 # ============================================================
-# PREPROCESSING PIPELINE (fit ONLY on train, applied consistently to test/new data)
+# PREPROCESSING PIPELINE
 # ============================================================
 preprocessor = ColumnTransformer(transformers=[
     ('num', StandardScaler(), numerical_features),
